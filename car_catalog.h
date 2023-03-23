@@ -45,7 +45,7 @@ void CarCatalog::display() {
         cout << endl;
     }
 }
-void CarCatalog::heapsort() {
+void CarCatalog::heapsort() { //heapsort
     // build min heap
 	int heap_size = m_size;
     for (int i = m_size - 1; i >= 0; i--) 
@@ -59,13 +59,13 @@ void CarCatalog::heapsort() {
 }
 
 void CarCatalog::min_heapify(int heap_size, int i) {
-    int l = i*2 + 1;
-    int r = i*2 + 2;
+    int l = i*2 + 1;//left child index
+    int r = i*2 + 2;//right child index 
     int smallest = i;
     if (l < heap_size && m_catalog[l] < m_catalog[smallest]) smallest = l;
     if (r < heap_size && m_catalog[r] < m_catalog[smallest]) smallest = r;
     if (smallest != i) {
-        std::swap(m_catalog[i], m_catalog[smallest]);
+        std::swap(m_catalog[i], m_catalog[smallest]);   
         min_heapify(heap_size, smallest);
     }
 }
