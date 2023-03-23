@@ -5,8 +5,8 @@
 
 class CarCatalog {
 public:
-	static constexpr int MAX_HEAP_SIZE = 32;
-	CarCatalog() {m_size = 0;}
+	static constexpr int MAX_HEAP_SIZE = 32; //size of heap
+	CarCatalog() {m_size = 0;} //constructor
 
 	void insert(Car c);
 	bool erase(Car c);
@@ -20,11 +20,11 @@ private:
 };
 
 
-void CarCatalog::insert(Car a) {
+void CarCatalog::insert(Car a) { //insert method
     m_catalog[m_size++] = a;
 }
 
-bool CarCatalog::erase(Car a) {
+bool CarCatalog::erase(Car a) { //erase method from m_catalog
     for (int i = 0; i < m_size; i++) {
         if (m_catalog[i] == a) {
             std::swap(m_catalog[i], m_catalog[m_size - 1]);
@@ -40,7 +40,7 @@ void CarCatalog::display() {
     cout << m_size << endl;
     heapsort();
     for (int i = m_size - 1; i >= 0; i--) {
-        // TODO: dodać żeby wyświetlało samochód - resjestracja + waga
+        
         m_catalog[i].displayCarNamePower();
         cout << endl;
     }
